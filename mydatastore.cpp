@@ -121,10 +121,10 @@ void MyDataStore::add_to_cart(std::string username, int search_hit_number) {
         std::cerr << "Invalid request" << std::endl;
         return;
     }
-    if (search_hit_number < 0 || search_hit_number >= (int)last_hits_.size()) {
+    if (search_hit_number <= 0 || search_hit_number > (int)last_hits_.size()) {
         std::cerr << "Invalid request" << std::endl;
     }
-    users_[u].push_back(last_hits_[search_hit_number]);
+    users_[u].push_back(last_hits_[search_hit_number - 1]);
 }
 
 void MyDataStore::dump(std::ostream &ofile) {
