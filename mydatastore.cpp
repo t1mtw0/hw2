@@ -65,10 +65,9 @@ void MyDataStore::viewcart(std::string username) {
         std::cerr << "Invalid username" << std::endl;
         return;
     }
-    int i = 1;
+    // int i = 1;
     for (Product *p: users_[u]) {
-        // std::cout << i++ << "\n";
-        p->dump(std::cout);
+        std::cout << p->displayString() << std::endl;
     }
 }
 
