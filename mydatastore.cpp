@@ -8,12 +8,12 @@
 MyDataStore::MyDataStore() {};
 
 MyDataStore::~MyDataStore() {
-    // for (Product *p: prods_) {
-        // delete p;
-    // }
-    // for (std::map<User *, std::deque<Product *>>::iterator it = users_.begin(); it != users_.end(); ++it) {
-        // delete it->first;
-    // }
+    for (Product *p: prods_) {
+        delete p;
+    }
+    for (std::map<User *, std::deque<Product *>>::iterator it = users_.begin(); it != users_.end(); ++it) {
+        delete it->first;
+    }
 };
 
 void MyDataStore::addProduct(Product *p) {
