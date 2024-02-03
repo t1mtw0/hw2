@@ -1,6 +1,8 @@
 #include "mydatastore.h"
 #include "util.h"
 #include <string>
+#include <iostream>
+#include <iomanip>
 #include <vector>
 #include <map>
 #include <deque>
@@ -66,9 +68,23 @@ void MyDataStore::viewcart(std::string username) {
         return;
     }
     // int i = 1;
-    for (Product *p: users_[u]) {
-        std::cout << p->displayString() << std::endl;
+    // for (Product *p: users_[u]) {
+        // std::cout << p->displayString() << std::endl;
+    // }
+
+    int resultNo = 1;
+    if (users_[u].begin() == users_[u].end()) {
+        std::cout << "No results found!" << std::endl;
+        return;
     }
+    for (std::deque<Product *>::iterator it = users_[u].begin(); it != users_[u].end();
+         ++it) {
+        std::cout << "Hit " << std::setw(3) << resultNo << std::endl;
+        std::cout << (*it)->displayString() << std::endl;
+        std::cout << std::endl;
+        resultNo++;
+    }
+
 }
 
 void MyDataStore::buycart(std::string username) {
