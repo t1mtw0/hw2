@@ -67,7 +67,7 @@ void MyDataStore::viewcart(std::string username) {
     }
     int i = 1;
     for (Product *p: users_[u]) {
-        std::cout << i++ << ": " << p->displayString() << std::endl;
+        std::cout << i++ << "\n" << p->displayString() << std::endl;
     }
 }
 
