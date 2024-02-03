@@ -64,7 +64,7 @@ void MyDataStore::viewcart(std::string username) {
         }
     }
     if (u == nullptr) {
-        std::cerr << "Invalid username" << std::endl;
+        std::cout << "Invalid username" << std::endl;
         return;
     }
     // int i = 1;
@@ -95,7 +95,7 @@ void MyDataStore::buycart(std::string username) {
         }
     }
     if (u == nullptr) {
-        std::cerr << "Invalid username" << std::endl;
+        std::cout << "Invalid username" << std::endl;
         return;
     }
     std::deque<Product *>::iterator it = users_[u].begin();
@@ -118,11 +118,11 @@ void MyDataStore::add_to_cart(std::string username, int search_hit_number) {
         }
     }
     if (u == nullptr) {
-        std::cerr << "Invalid request" << std::endl;
+        std::cout << "Invalid request" << std::endl;
         return;
     }
     if (search_hit_number <= 0 || search_hit_number > (int)last_hits_.size()) {
-        std::cerr << "Invalid request" << std::endl;
+        std::cout << "Invalid request" << std::endl;
     }
     users_[u].push_back(last_hits_[search_hit_number - 1]);
 }
